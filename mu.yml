@@ -1,0 +1,10 @@
+environments:
+- name: acceptance
+- name: production
+service:
+  port: 80
+  pathPatterns:
+  - /*
+  pipeline:
+    source:
+      repo: ssh://gis-stratus@vs-ssh.visualstudio.com:22/Architecture/_ssh/atk-playground-msg-producer
