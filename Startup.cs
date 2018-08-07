@@ -40,11 +40,14 @@ namespace MsgProducer
 
             app.Run(async (context) =>
             {
-                var msg = context.Request.Query["msg"];
+                if (context.Request.Query.ContainsKey("msg"))
+                {
+                    var msg = context.Request.Query["msg"];
 
-                var sender = app.ApplicationServices.GetService<IMessageSender>();
-                await sender.SendMessage(msg);
-                await context.Response.WriteAsync("Hello World! Sent message: " + msg);
+                    var sender = app.ApplicationServices.GetService<IMessageSender>();
+                    await sender.SendMessage(msg);
+                    await context.Response.WriteAsync("Hello World! Sent message: " + msg);
+                }
             });
         }
     }
