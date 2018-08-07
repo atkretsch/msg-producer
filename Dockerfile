@@ -13,6 +13,6 @@ RUN dotnet publish -c Release -o out
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENV QUEUE_URL=https://queue.amazonaws.com/400534444935/atk-test
+ENV QUEUE_URL=https://sqs.us-east-1.amazonaws.com/103029031786/test
 ENTRYPOINT ["dotnet", "MsgProducer.dll"]
 
