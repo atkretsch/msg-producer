@@ -23,9 +23,9 @@ namespace MsgProducer
             var builder = new ConfigurationBuilder();
             Configuration = builder.Build();
 
-            var awsOptions = Configuration.GetAWSOptions();
-            awsOptions.Credentials = new EnvironmentVariablesAWSCredentials();
-            services.AddDefaultAWSOptions(awsOptions);
+            // var awsOptions = Configuration.GetAWSOptions();
+            // awsOptions.Credentials = new EnvironmentVariablesAWSCredentials();
+            // services.AddDefaultAWSOptions(awsOptions);
             services.AddAWSService<IAmazonSQS>();
             services.Add(new ServiceDescriptor(typeof(IMessageSender), typeof(MessageSender), ServiceLifetime.Singleton));
         }

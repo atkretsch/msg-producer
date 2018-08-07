@@ -13,4 +13,5 @@ RUN dotnet publish -c Release -o out
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 COPY --from=build-env /app/out .
+QUEUE_URL=https://queue.amazonaws.com/400534444935/atk-test
 ENTRYPOINT ["dotnet", "MsgProducer.dll"]
