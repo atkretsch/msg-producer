@@ -8,4 +8,5 @@ service:
   - /*
   pipeline:
     source:
-      repo: ssh://gis-stratus@vs-ssh.visualstudio.com:22/Architecture/_ssh/atk-playground-msg-producer
+      provider: GitHub
+      repo: atkretsch/msg-producer
