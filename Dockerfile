@@ -15,3 +15,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 ENV QUEUE_URL=https://queue.amazonaws.com/400534444935/atk-test
 ENTRYPOINT ["dotnet", "MsgProducer.dll"]
+
