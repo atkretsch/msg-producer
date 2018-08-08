@@ -1,8 +1,10 @@
 environments:
 - name: acceptance
+  provider: ecs-fargate
 - name: production
+  provider: ecs-fargate
 service:
-  name: msg-producer
+  networkMode: awsvpc
   port: 80
   pathPatterns:
   - /*
