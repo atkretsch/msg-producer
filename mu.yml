@@ -12,3 +12,10 @@ service:
     source:
       provider: GitHub
       repo: atkretsch/msg-producer
+templates:
+  mu-iam-service-msg-producer-acceptance:
+    Resources:
+      EcsTaskRole:
+        Properties:
+          ManagedPolicyArns:
+          - "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
